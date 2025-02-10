@@ -9,8 +9,15 @@
 * UHealth::Damage will call the base class (UHealths) damage funtion not the Armoured Health Damage
 * 
 */
+
+
 void UArmouredHealth::TakeDamage(int Damage)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Armoured Health took no damage! you might want to change that"));
-	Super::TakeDamage(Damage);
+	ArmouredHealth -= Damage;
+	if (ArmouredHealth < 0)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("I am hit"))
+			ArmouredHealth = 0;
+		Super::TakeDamage(Damage);
+	}
 }

@@ -19,4 +19,10 @@ class HEALTHDEMO_API UArmouredHealth : public UHealth
 	public:
 		// notice i have to say this is an override
 		void TakeDamage(int Damage) override;
+
+private:
+	UPROPERTY(VisibleAnywhere, Category="Armour|MaxArmour")
+	int MaxArmour = 100;
+	UPROPERTY(VisibleAnywhere, Category="Armour|ArmouredHealth")
+	int ArmouredHealth = 100;
 };
